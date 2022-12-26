@@ -49,26 +49,26 @@ class Solution {
             int i = left + (right - left) / 2;
             int j = half - i;
 
-            // get the four points around possible median
+            
             int left1 = (i > 0) ? nums1[i - 1] : Integer.MIN_VALUE;
             int right1 = (i < m) ? nums1[i] : Integer.MAX_VALUE;
             int left2 = (j > 0) ? nums2[j - 1] : Integer.MIN_VALUE;
             int right2 = (j < n) ? nums2[j] : Integer.MAX_VALUE;
 
-            // partition is correct
+            
             if (left1 <= right2 && left2 <= right1) {
                 // even
                 if (total % 2 == 0) {
                     result =
                         (Math.max(left1, left2) + Math.min(right1, right2)) /
                         2.0;
-                    // odd
+                    
                 } else {
                     result = Math.max(left1, left2);
                 }
                 break;
             }
-            // partition is wrong (update left/right pointers)
+            
             else if (left1 > right2) {
                 right = i - 1;
             } else {
